@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Algebraic Expressions | Tanzanian Student Lesson</title>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Poppins & Fira Code for math style -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f7f3e9 0%, #e8e0d0 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 1.5rem;
+      color: #1e2a2e;
+      min-height: 100vh;
+    }
+
+    /* main container with card effect */
+    .lesson-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #fffef7;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* header with Tanzanian vibes */
+    .hero {
+      background: linear-gradient(135deg, #1e5f4b 0%, #0b3b2f 100%);
+      padding: 2rem 2rem 1.8rem 2rem;
+      color: white;
+      border-bottom: 6px solid #f4c542;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 i {
+      background: #f4c542;
+      color: #1e5f4b;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      margin-top: 0.75rem;
+      font-size: 1.15rem;
+      opacity: 0.9;
+      font-weight: 400;
+      max-width: 85%;
+    }
+
+    .student-badge {
+      display: inline-flex;
+      background: rgba(255,255,240,0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* two column layout: left explanation, right interactive */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem 2rem 2.5rem 2rem;
+    }
+
+    @media (max-width: 850px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero p {
+        max-width: 100%;
+      }
+    }
+
+    /* Left side: teaching card */
+    .teaching-card {
+      background: #fefaf0;
+      border-radius: 1.8rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border: 1px solid #f0e2c5;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      border-left: 6px solid #f4c542;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      color: #1e2a2e;
+    }
+
+    .definition {
+      background: #e9f3ef;
+      padding: 1rem 1.2rem;
+      border-radius: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      border-left: 4px solid #1e5f4b;
+    }
+
+    .term-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+
+    .term-item {
+      background: white;
+      border-radius: 60px;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      font-family: 'Fira Code', monospace;
+      border: 1px solid #ddd0b6;
+    }
+
+    .example-box {
+      background: #f3ede2;
+      border-radius: 1.2rem;
+      padding: 1rem 1.2rem;
+      margin: 1.2rem 0;
+    }
+
+    .example-box h3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #1e5f4b;
+    }
+
+    .math {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.1rem;
+      background: #1e2a2e;
+      color: #f9f6e6;
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    .student-note {
+      background: #fff2db;
+      padding: 1rem;
+      border-radius: 1rem;
+      font-style: italic;
+      margin-top: 1.2rem;
+      border-left: 4px solid #f4c542;
+      font-weight: 500;
+    }
+
+    .student-note i {
+      color: #b45f1b;
+      margin-right: 6px;
+    }
+
+    /* Right side: interactive workshop */
+    .workshop-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border: 1px solid #e6dcc8;
+    }
+
+    .expr-builder {
+      background: #f8f4ea;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 1rem 0;
+      align-items: center;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      background: #e0d6c2;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+
+    input, select {
+      padding: 0.65rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #cdbc9a;
+      background: white;
+      font-family: 'Inter', monospace;
+      font-size: 0.95rem;
+      outline: none;
+      flex: 1;
+      min-width: 120px;
+    }
+
+    button {
+      background: #1e5f4b;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button:hover {
+      background: #134b3b;
+      transform: scale(0.97);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .result-area {
+      background: #eef1e6;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+    }
+
+    .eval-box {
+      background: #1e2a2e;
+      color: #f9eec1;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 1rem;
+    }
+
+    .eval-box p {
+      margin: 5px 0;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border: 0;
+      height: 2px;
+      background: linear-gradient(to right, #f4c542, #e2cf9e);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1rem 2rem;
+      background: #faf5e6;
+      border-top: 1px solid #e2d6be;
+      color: #3b4a3f;
+    }
+
+    .highlight {
+      color: #c17b2e;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="lesson-container">
+  <div class="hero">
+    <h1>
+      <i class="fas fa-chalkboard-teacher"></i> 
+      Algebraic Expressions
+    </h1>
+    <p>Jifunze pamoja nami! <strong>~ Neema, mwanafunzi wa kidato cha kwanza, Tanzania ~</strong></p>
+    <div class="student-badge">
+      <i class="fas fa-graduation-cap"></i> 
+      <span>Karibu! | Welcome! Let's explore how letters and numbers create mathematical poetry.</span>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <!-- LEFT PANEL: TEACHING EXPLANATION -->
+    <div class="teaching-card">
+      <div class="section-title">
+        <i class="fas fa-lightbulb" style="color:#f4c542; margin-right: 8px;"></i> 
+        What is an algebraic expression?
+      </div>
+      <div class="definition">
+        <i class="fas fa-calculator"></i> <strong>Algebraic expression</strong> = a combination of <strong>numbers</strong>, <strong>variables</strong> (letters like x, y, a), and <strong>operations</strong> (+, −, ×, ÷).<br>
+        No equal sign! (that's an equation).
+      </div>
+
+      <div class="term-list">
+        <span class="term-item"><i class="fas fa-star-of-life"></i> Variable: a letter representing an unknown value</span>
+        <span class="term-item"><i class="fas fa-hashtag"></i> Coefficient: number multiplied by a variable</span>
+        <span class="term-item"><i class="fas fa-plus-circle"></i> Constant: fixed number (e.g. 5, -2)</span>
+        <span class="term-item"><i class="fas fa-layer-group"></i> Terms: parts separated by + or -</span>
+      </div>
+
+      <div class="example-box">
+        <h3><i class="fas fa-chalkboard"></i> Example 1: Real life (Shule yetu)</h3>
+        <p>Neema buys <strong>3 notebooks</strong> and <strong>2 pens</strong>. Each notebook costs <strong>sh 1,500</strong> and each pen costs <strong>sh 500</strong>. But what if we don't know the price? Let variable <strong>n</strong> = price per notebook, <strong>p</strong> = price per pen.<br>
+        <span class="math">3n + 2p</span> is an algebraic expression!</p>
+      </div>
+
+      <div class="example-box">
+        <h3><i class="fas fa-cogs"></i> Example 2: Terms & Coefficients</h3>
+        <p>Expression: <span class="math">5x² - 3xy + 7</span><br>
+        ➜ Terms: <strong>5x²</strong> , <strong>-3xy</strong> , <strong>+7</strong><br>
+        ➜ Coefficient of x² is <strong>5</strong>, coefficient of xy is <strong>-3</strong>, constant = <strong>7</strong>.<br>
+        ✨ Variables can be more than one letter!</p>
+      </div>
+
+      <div class="student-note">
+        <i class="fas fa-comment-dots"></i> <strong>From me (Neema):</strong> “In Tanzania, when we farm maize or sell groceries, algebraic expressions help us calculate profits without fixed numbers. Imagine: '2 sacks of maize + 3 buckets of beans' = 2m + 3b. Simple, right?”
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: INTERACTIVE WORKSHOP -->
+    <div class="workshop-card">
+      <div class="section-title" style="border-left-color: #1e5f4b;">
+        <i class="fas fa-hands-helping"></i> Build & Evaluate Expressions
+      </div>
+      <p>Let’s practise like we're solving a real problem. Choose terms and substitute values!</p>
+      
+      <div class="expr-builder">
+        <h3><i class="fas fa-puzzle-piece"></i> 1. Create your own expression</h3>
+        <div class="input-group">
+          <label>Coefficient 1:</label>
+          <input type="number" id="coeff1" value="4" step="1">
+          <label>Variable 1:</label>
+          <select id="var1">
+            <option value="x">x</option>
+            <option value="y">y</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="t">t (shillings)</option>
+          </select>
+          <span style="font-weight: bold;">+</span>
+        </div>
+        <div class="input-group">
+          <label>Coefficient 2:</label>
+          <input type="number" id="coeff2" value="2" step="1">
+          <label>Variable 2:</label>
+          <select id="var2">
+            <option value="x">x</option>
+            <option value="y" selected>y</option>
+            <option value="a">a</option>
+            <option value="b">b</option>
+            <option value="t">t (shillings)</option>
+          </select>
+          <span style="font-weight: bold;">+ Constant</span>
+          <input type="number" id="constVal" value="5" step="1" style="width: 80px;">
+        </div>
+        <button id="buildExprBtn"><i class="fas fa-code-branch"></i> Build Expression</button>
+        <div class="result-area" id="displayExpression">
+          <strong>📐 Your expression:</strong> <span id="exprPreview">4x + 2y + 5</span>
+        </div>
+      </div>
+
+      <div class="expr-builder">
+        <h3><i class="fas fa-exchange-alt"></i> 2. Substitute values (Tanzanian context)</h3>
+        <p>Assign values to variables based on real items:</p>
+        <div class="input-group">
+          <label><i class="fas fa-apple-alt"></i> Variable value (x / a / etc):</label>
+          <input type="number" id="subValue1" placeholder="e.g., 10" value="3" step="0.5">
+          <label><i class="fas fa-seedling"></i> Second variable value:</label>
+          <input type="number" id="subValue2" placeholder="e.g., 7" value="4" step="0.5">
+        </div>
+        <button id="evaluateBtn"><i class="fas fa-calculator"></i> Evaluate Expression</button>
+        <div class="eval-box" id="evalResult">
+          <p><i class="fas fa-chart-line"></i> <strong>Result:</strong> <span id="resultNumber">—</span></p>
+          <p id="explanationMsg" style="font-size: 0.85rem;">🔍 Click evaluate to see the numeric answer in shillings or units.</p>
+        </div>
+      </div>
+
+      <div class="expr-builder">
+        <h3><i class="fas fa-star"></i> 3. Challenge: Like terms & simplification</h3>
+        <p>Simplify: <strong><span id="challengeExpr">3x + 4y - x + 2y + 10</span></strong></p>
+        <button id="simplifyBtn"><i class="fas fa-magic"></i> Show simplified form</button>
+        <div class="result-area" id="simplifyAnswer" style="margin-top: 12px;">
+          💡 <span id="simplifiedResult">Click to simplify</span>
+        </div>
+      </div>
+
+      <div class="student-note" style="background:#f5ecdc;">
+        <i class="fas fa-globe-africa"></i> <strong>Fun fact:</strong> Many Tanzanian market vendors use mental algebra! If you buy 2kg of beans (b sh/kg) and 3kg of rice (r sh/kg), total cost = 2b + 3r. Now you know Algebra is everywhere!
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <i class="fas fa-heart" style="color:#c17b2e;"></i> Learning together | Neema's algebraic class - Arusha, Tanzania | <i class="fas fa-school"></i> "Elimu ni ufunguo"
+  </div>
+</div>
+
+<script>
+  // ---------- DOM elements ----------
+  // expression builder elements
+  const coeff1Input = document.getElementById('coeff1');
+  const var1Select = document.getElementById('var1');
+  const coeff2Input = document.getElementById('coeff2');
+  const var2Select = document.getElementById('var2');
+  const constInput = document.getElementById('constVal');
+  const buildBtn = document.getElementById('buildExprBtn');
+  const exprPreviewSpan = document.getElementById('exprPreview');
+
+  // evaluation elements
+  const subValue1 = document.getElementById('subValue1');
+  const subValue2 = document.getElementById('subValue2');
+  const evaluateBtn = document.getElementById('evaluateBtn');
+  const resultNumberSpan = document.getElementById('resultNumber');
+  const explanationMsgSpan = document.getElementById('explanationMsg');
+
+  // simplification challenge
+  const simplifyBtn = document.getElementById('simplifyBtn');
+  const simplifiedResultSpan = document.getElementById('simplifiedResult');
+  const challengeExprSpan = document.getElementById('challengeExpr');
+
+  // current expression representation: store coeffs, vars, const
+  let currentExpr = {
+    coeff1: 4,
+    var1: 'x',
+    coeff2: 2,
+    var2: 'y',
+    constant: 5
+  };
+
+  // Helper: update preview and store current expression from UI
+  function updateExpressionFromUI() {
+    let c1 = parseFloat(coeff1Input.value);
+    let c2 = parseFloat(coeff2Input.value);
+    let constVal = parseFloat(constInput.value);
+    if (isNaN(c1)) c1 = 0;
+    if (isNaN(c2)) c2 = 0;
+    if (isNaN(constVal)) constVal = 0;
+    const v1 = var1Select.value;
+    const v2 = var2Select.value;
+    currentExpr = {
+      coeff1: c1,
+      var1: v1,
+      coeff2: c2,
+      var2: v2,
+      constant: constVal
+    };
+    // build readable expression string
+    let exprStr = '';
+    if (c1 !== 0) {
+      exprStr += (c1 === 1 ? '' : c1) + v1;
+    } else {
+      exprStr += '0';
+    }
+    if (c2 !== 0) {
+      const sign = c2 > 0 ? ' + ' : ' - ';
+      const absC2 = Math.abs(c2);
+      exprStr += (c2 > 0 ? ' + ' : ' - ') + (absC2 === 1 ? '' : absC2) + v2;
+    } else if (c2 === 0 && c1 !== 0) {
+      // nothing extra
+    } else if (c1 === 0 && c2 !== 0) {
+      exprStr = (c2 === 1 ? '' : c2) + v2;
+    } else if (c1 === 0 && c2 === 0) {
+      exprStr = '';
+    }
+    if (constVal !== 0) {
+      if (exprStr !== '' && exprStr !== '0') {
+        exprStr += (constVal > 0 ? ' + ' : ' - ') + Math.abs(constVal);
+      } else {
+        exprStr = constVal.toString();
+      }
+    }
+    if (exprStr === '' || exprStr === '0') exprStr = '0';
+    exprPreviewSpan.innerText = exprStr;
+    return exprStr;
+  }
+
+  // evaluate current expression given variable values (value1 for var1, value2 for var2)
+  function evaluateExpression(value1, value2) {
+    let c1 = currentExpr.coeff1;
+    let c2 = currentExpr.coeff2;
+    let constVal = currentExpr.constant;
+    // treat if variable names are same or different? We keep them independent: first var uses value1, second var uses value2.
+    // But if both variables are the same letter (e.g. var1 = 'x' and var2 = 'x') we should combine them algebraically.
+    // To make it mathematically correct: if var1 === var2, sum coefficients then multiply by given value (using value1 as the variable's value).
+    // For better teaching: handle like terms combination.
+    if (currentExpr.var1 === currentExpr.var2) {
+      // combine coefficients
+      let totalCoeff = c1 + c2;
+      let combinedValue = totalCoeff * value1;   // value1 is the value for that variable
+      let result = combinedValue + constVal;
+      return { result, explanation: `Variables are both ${currentExpr.var1}. Combined coefficient = ${totalCoeff}. Then ${totalCoeff} × ${value1} + (${constVal}) = ${result}.` };
+    } else {
+      // different variables
+      let term1 = c1 * value1;
+      let term2 = c2 * value2;
+      let result = term1 + term2 + constVal;
+      return { result, explanation: `${c1}×(${value1}) + ${c2}×(${value2}) + ${constVal} = ${term1} + ${term2} + ${constVal} = ${result}.` };
+    }
+  }
+
+  // Build expression from current UI  (also refreshes)
+  buildBtn.addEventListener('click', () => {
+    updateExpressionFromUI();
+    // reset eval result display
+    resultNumberSpan.innerText = '—';
+    explanationMsgSpan.innerHTML = '🔍 Click evaluate to see the numeric answer. New expression built!';
+  });
+
+  // Evaluate with user input values
+  evaluateBtn.addEventListener('click', () => {
+    // make sure expression is up-to-date
+    updateExpressionFromUI();
+    let val1 = parseFloat(subValue1.value);
+    let val2 = parseFloat(subValue2.value);
+    if (isNaN(val1)) val1 = 0;
+    if (isNaN(val2)) val2 = 0;
+    const { result, explanation } = evaluateExpression(val1, val2);
+    let formattedResult = Number.isInteger(result) ? result : result.toFixed(2);
+    resultNumberSpan.innerText = formattedResult;
+    // Context note about shillings or units
+    let currencyNote = (currentExpr.var1 === 't' || currentExpr.var2 === 't') ? " (TZS)" : " (units)";
+    explanationMsgSpan.innerHTML = `<i class="fas fa-info-circle"></i> ${explanation} <br> 🧾 Value ${currencyNote}: ${formattedResult}`;
+  });
+
+  // Simplify challenge: expression "3x + 4y - x + 2y + 10"
+  function simplifyExample() {
+    // like terms: 3x - x = 2x ; 4y + 2y = 6y ; constant +10
+    let simplified = "2x + 6y + 10";
+    let fullExplanation = "Combine like terms: (3x - x) = 2x, (4y + 2y) = 6y, constant = 10, so simplified = 2x + 6y + 10.";
+    simplifiedResultSpan.innerHTML = `<strong>${simplified}</strong><br><span style="font-size:0.8rem;">${fullExplanation}</span>`;
+  }
+  simplifyBtn.addEventListener('click', simplifyExample);
+
+  // initial building of expression preview and set default simplify msg
+  window.addEventListener('DOMContentLoaded', () => {
+    updateExpressionFromUI();
+    resultNumberSpan.innerText = '—';
+    explanationMsgSpan.innerHTML = '🔍 Set variable values and click evaluate.';
+    simplifiedResultSpan.innerHTML = 'Click "Show simplified form" to see step-by-step combination of like terms.';
+    // Additional: small tooltip style for better interaction
+  });
+
+  // when any input/select changes, auto-refresh preview (real-time)
+  const inputsToWatch = [coeff1Input, var1Select, coeff2Input, var2Select, constInput];
+  inputsToWatch.forEach(input => {
+    input.addEventListener('input', () => {
+      updateExpressionFromUI();
+      // also show that evaluation needs refresh
+      resultNumberSpan.innerText = '—';
+      explanationMsgSpan.innerHTML = '🔄 Expression changed. Click evaluate to compute new result.';
+    });
+    input.addEventListener('change', () => {
+      updateExpressionFromUI();
+      resultNumberSpan.innerText = '—';
+      explanationMsgSpan.innerHTML = '🔄 Expression changed. Click evaluate to compute new result.';
+    });
+  });
+
+  // Bonus: Show proper handling of zero coefficients or negative. Already factored in expression builder.
+  // Additional fix: ensure that negative constants and coefficients are displayed correctly.
+  function updateExpressionFromUI() {
+    let c1 = parseFloat(coeff1Input.value);
+    let c2 = parseFloat(coeff2Input.value);
+    let constVal = parseFloat(constInput.value);
+    if (isNaN(c1)) c1 = 0;
+    if (isNaN(c2)) c2 = 0;
+    if (isNaN(constVal)) constVal = 0;
+    const v1 = var1Select.value;
+    const v2 = var2Select.value;
+    currentExpr = { coeff1: c1, var1: v1, coeff2: c2, var2: v2, constant: constVal };
+
+    let terms = [];
+    // first term
+    if (c1 !== 0) {
+      let coeffPart = (Math.abs(c1) === 1 ? '' : Math.abs(c1));
+      let sign = c1 > 0 ? '' : '-';
+      terms.push(sign + coeffPart + v1);
+    }
+    // second term
+    if (c2 !== 0) {
+      let coeffPart = (Math.abs(c2) === 1 ? '' : Math.abs(c2));
+      let sign = c2 > 0 ? '+' : '-';
+      terms.push(sign + coeffPart + v2);
+    }
+    // constant
+    if (constVal !== 0) {
+      let sign = constVal > 0 ? '+' : '-';
+      terms.push(sign + Math.abs(constVal));
+    }
+    let exprStr = terms.length ? terms.join(' ') : '0';
+    exprStr = exprStr.replace(/\+\s*-/g, '- ');
+    if (exprStr.startsWith('+')) exprStr = exprStr.substring(1);
+    exprPreviewSpan.innerText = exprStr || '0';
+    return exprStr;
+  }
+  // Override to match expression generator logic fully
+  window.updateExpressionFromUI = updateExpressionFromUI;
+  updateExpressionFromUI();
+</script>
+</body>
+</html>
